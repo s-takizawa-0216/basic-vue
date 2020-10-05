@@ -1,7 +1,16 @@
 <template>
   <div :style="errorMessageStyle">
     <ul>
-      <li v-for='item in items' :key = 'item.name'>
+      <li v-for='item in items' :key='item.name'>
+        {{ item.name }} の個数 : 
+        <!-- v-on での実装 -->
+        <!-- <input type='number' @change='item.quantity = $event.target.value' :value='item.quantity' min='0'> -->
+        <!-- v-modelでの実装 -->
+        <input type='number' v-model='item.quantity' min='0'>
+      </li>
+    </ul>
+    <ul>
+      <li v-for='item in items' :key='item.name'>
         {{ item.name }} : {{ item.price }} * {{ item.quantity }} = 
         {{ item.price * item.quantity | numberWithDelimiter }} 円
       </li>
@@ -11,6 +20,7 @@
     <p v-show="!canBuy">
       {{ 1000 | numberWithDelimiter }} 円以上からご購入頂けます。
     </p>
+    <button :disabled='!canBuy' @click='doBuy'>購入</button>
   </div>
 </template>
 
@@ -63,7 +73,6 @@ export default {
       }
     }
   },
-
   filters: {
     numberWithDelimiter: function(value){
       if(!value){
@@ -73,12 +82,20 @@ export default {
       }
     },
   },
-
-  props: {
-  }
+  methods: {
+    doBuy: function() {
+      alert(this.totalPriceWithTax + '円のお買い上げ！');
+      this.items.forEach(function(item){
+        item.quantity = 0;
+      })
+    }
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+ul {
+  list-style: none;
+}
 </style>
