@@ -3,7 +3,10 @@
     <ul>
       <li v-for='item in items' :key='item.name'>
         {{ item.name }} の個数 : 
-        <input type='number' @change='item.quantity = $event.target.value' :value='item.quantity' min='0'>
+        <!-- v-on での実装 -->
+        <!-- <input type='number' @change='item.quantity = $event.target.value' :value='item.quantity' min='0'> -->
+        <!-- v-modelでの実装 -->
+        <input type='number' v-model='item.quantity' min='0'>
       </li>
     </ul>
     <ul>
