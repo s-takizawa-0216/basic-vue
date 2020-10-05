@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to='/section2'>section2</router-link>
+    <div class='link__wrapper'>
+      <router-link to='/section2' class='link'>section2</router-link>
+      <router-link to='/section3' class='link'>section3</router-link>
     </div>
     <div>
       <router-view />
     </div>
-    <div>
-      <router-link to='/'>Top</router-link>
+    <div class='link__wrapper'>
+      <router-link to='/' class='link'>Top</router-link>
     </div>
   </div>
 </template>
@@ -29,5 +30,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.link__wrapper {
+  margin: 10px;
+}
+
+.link {
+  padding: 10px;
 }
 </style>
