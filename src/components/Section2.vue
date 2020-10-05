@@ -20,6 +20,7 @@
     <p v-show="!canBuy">
       {{ 1000 | numberWithDelimiter }} 円以上からご購入頂けます。
     </p>
+    <button :disabled='!canBuy' @click='doBuy'>購入</button>
   </div>
 </template>
 
@@ -72,7 +73,6 @@ export default {
       }
     }
   },
-
   filters: {
     numberWithDelimiter: function(value){
       if(!value){
@@ -82,12 +82,20 @@ export default {
       }
     },
   },
-
-  props: {
-  }
+  methods: {
+    doBuy: function() {
+      alert(this.totalPriceWithTax + '円のお買い上げ！');
+      this.items.forEach(function(item){
+        item.quantity = 0;
+      })
+    }
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+ul {
+  list-style: none;
+}
 </style>
