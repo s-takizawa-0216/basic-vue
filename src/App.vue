@@ -4,6 +4,7 @@
       <router-link to='/section2' class='link'>section2</router-link>
       <router-link to='/section3-1' class='link'>section3-1</router-link>
       <router-link to='/section3-2' class='link'>section3-2</router-link>
+      <router-link to='/section3-3' class='link'>section3-3</router-link>
     </div>
     <div>
       <router-view />
