@@ -5,6 +5,8 @@ import Section2 from './components/Section2'
 import Fruits from './components/Section3/Fruits'
 import Header from './views/Section3/Header'
 import LoginView from './views/Section3/LoginView'
+import Section4 from './views/Section4/Top'
+import UserList from './components/Section4/UserList'
 
 Vue.use(Router)
 
@@ -30,6 +32,16 @@ export default new Router({
       path: '/section3-3',
       name: 'section3-3',
       component: LoginView,
+    },
+    {
+      path: '/section4/top',
+      name: 'section4',
+      component: Section4,
+    },
+    {
+      path: '/section4/users',
+      name: 'section4-users',
+      component: UserList,
     }
   ]
 })

@@ -5,10 +5,13 @@
       <router-link to='/section3-1' class='link'>section3-1</router-link>
       <router-link to='/section3-2' class='link'>section3-2</router-link>
       <router-link to='/section3-3' class='link'>section3-3</router-link>
+      <router-link to='/section4/top' class='link'>section4</router-link>
     </div>
+    
     <div>
       <router-view />
     </div>
+    
     <div class='link__wrapper'>
       <router-link to='/' class='link'>Top</router-link>
     </div>
